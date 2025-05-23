@@ -1,0 +1,66 @@
+@import url("./normalize.css");
+@import url("./fonts.css");
+:root {
+    --color-main: #ffffff; /* --white: #fff; */
+
+    --color-primary: #152f70; /*--dark-blue-main: */
+    --color-secondary: #0a93ef; /*--blue-main: */
+    --color-tertiary: #e1f5fe; /*--light-blu*/
+    --color-subsidiary: #cdc3c0;
+
+    --color-text-primary: #737b8c; /* --gray-main-text */
+    --color-text-secondary: #565656; /* --dark-gray-text */
+    --color-text-tertiary: #f5f6fa; /* --light-gray-text */
+
+    --color-accent: #184f8b; /*--dark-blue-accentа*/
+
+    /* --color-hover: #fcf1e0; */
+
+    --font-family-primary: "Roboto Variable", sans-serif;
+    --font-family-secondary: "Work Sans Variable", sans-serif;
+    /* --font-size-primary: 14px; */
+
+    --width-container: 1254px; /* !!! 1196px + 2*28px потім треба змінити */
+
+    --padding-100: 100px;
+    --padding-134: 134px;
+    --padding-150: 150px;
+
+    --gap: 20px;
+}
+
+.container {
+
+    margin-inline: auto;
+    max-width: var(--width-container);
+    width: 100%;
+    padding: 0 28px; /*122 20 при 1200 vs 390*/ /* !!! 1196px + 2*28px потім треба змінити */
+}
+
+.text-h1 {
+    font-family: var(--font-family-secondary);
+    font-weight: 700;
+    font-size: clamp(3.438rem, 2.204rem + 5.062vw, 6rem); /*96 55 при 1200 vs 390*/
+    line-height: 125%;
+    letter-spacing: 0.02em;
+}
+.text-s {
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    line-height: 125%;
+    @media screen and (max-width: 575.96px) {
+        font-size: 1rem;
+    }
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .col-2 {
+
+} */

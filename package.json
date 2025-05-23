@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/roboto": "^5.2.5",
+    "@fontsource-variable/work-sans": "^5.2.5",
     "astro": "^5.7.13"
   }
 }
