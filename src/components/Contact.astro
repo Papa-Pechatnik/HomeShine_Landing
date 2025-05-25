@@ -48,8 +48,7 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     padding-bottom: var(--contact-padding);
     background-color: var(--color-secondary);
     color: var(--color-tertiary);
-    text-align: center;
-  }
+}
 
   .contact--line-top,
   .contact--line-bottom {
@@ -116,6 +115,9 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
   }
 
   @media screen and (max-width: 992.98px) {
+    .contact {
+        text-align: center;
+    }
     .contact-box {
       display: flex;
       justify-content: center;
