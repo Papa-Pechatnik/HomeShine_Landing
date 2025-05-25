@@ -5,7 +5,7 @@ interface Props {
 
 const {color} = Astro.props;
 
-let colorUnderline = (color === "secondary") ? "var(--color-secondary)" : "var(--color-main)";
+let colorUnderline = `var(--${color})`;
 ---
 
 <div class="underline-h2" aria-hidden="true"></div>
@@ -16,5 +16,6 @@ let colorUnderline = (color === "secondary") ? "var(--color-secondary)" : "var(-
     height: 3px;
     background-color: var(--colorUnderline);
     margin-top: 16px;
+    border-radius: 3px;
   }
 </style>

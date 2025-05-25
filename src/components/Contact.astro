@@ -1,5 +1,121 @@
 ---
-
+import UnderlineH2 from "./elements/UnderlineH2.astro";
 ---
 
-<h1>Contact</h1>
+<section class="contact text-basic text-basic--20">
+  <div class="container">
+    <div class="contact-box">
+      <div class="contact-wrap">
+        <section class="contact-wrap__info">
+          <p class="contact--margin-bottom">Residential & Deck Painting services</p>
+          <UnderlineH2 color="color-tertiary" />
+          <p class="contact--margin-top">by HomeShine Painting</p>
+        </section>
+        <section class="contact-wrap__call">
+          <div class="contact-wrap__call-text">
+            <p class="contact--margin-bottom">Call now for a free estimate:</p>
+            <UnderlineH2 color="color-tertiary" />
+          </div>
+          <p class="contact-wrap__number contact--margin-top">+1 980 776 63 66</p>
+          <svg  class="contact-wrap__icon" xmlns="http://www.w3.org/2000/svg"
+                width="48" height="48" viewBox="0 0 48 48" fill="none" >
+            <path
+              d="M24 0C10.745 0 0 10.745 0 24s10.745 24 24 24 24-10.745 24-24S37.255 0 24 0m-8.625 9.533c.495-.029.941.267 1.28.791l3.281 6.223c.346.737.15 1.527-.366 2.054l-1.503 1.503a.74.74 0 0 0-.155.427c.576 2.231 2.325 4.29 3.867 5.704 1.543 1.416 3.2 3.332 5.353 3.785.266.075.592.101.782-.076l1.746-1.778c.603-.457 1.475-.678 2.118-.305h.03l5.92 3.496c.87.544.96 1.597.337 2.238l-4.078 4.046c-.602.617-1.402.825-2.18.826-3.437-.103-6.686-1.79-9.354-3.525-4.38-3.186-8.397-7.137-10.919-11.912-.967-2.002-2.103-4.556-1.995-6.79.01-.841.237-1.665.83-2.207l4.077-4.078c.318-.27.632-.404.929-.422"
+              fill="#E1F5FE">
+            </path>
+          </svg>
+          <!-- <a href="#" class="contact-wrap__call-tel"></a> -->
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    z-index: -2;
+    --contact-padding: clamp(2.25rem, 2.6204rem + -0.4938vw, 2.5rem);
+    padding-top: var(--contact-padding);
+    padding-bottom: var(--contact-padding);
+    background-color: var(--color-secondary);
+    color: var(--color-tertiary);
+  }
+
+  .contact-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: var(--gap);
+    row-gap: 3.75rem;
+  }
+
+  .contact-wrap__info {
+    text-transform: capitalize;
+  }
+
+  .contact--margin-bottom {
+    margin-bottom: 0.25rem;
+  }
+
+  .contact--margin-top {
+    margin-top: 1.25rem;
+  }
+
+  .contact-wrap__call {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    column-gap: 36px;
+    grid-template-areas:
+      "text icon"
+      "numb icon";
+    padding: clamp(1rem, 0.6761rem + 1.3289vw, 1.5rem); /*24 16 при 992 vs 390*/
+    background-color: rgba(var(--color-primary-rgba), 0.15);
+  }
+
+  .contact-wrap__call-text {
+    grid-area: text;
+  }
+
+  .contact-wrap__number {
+    grid-area: numb;
+  }
+
+  .contact-wrap__icon {
+    grid-area: icon;
+  }
+
+  @media screen and (max-width: 992.98px) {
+    .contact-box {
+      display: flex;
+      justify-content: center;
+    }
+    .contact-wrap {
+      flex-direction: column;
+      width: max-content;
+    }
+
+    .contact-wrap__info,
+    .contact-wrap__call-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact-wrap__call {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+      column-gap: 36px;
+      grid-template-areas:
+        "text"
+        "icon"
+        "numb";
+    }
+
+    .contact-wrap__icon {
+      margin-top: 20px;
+    }
+  }
+</style>
