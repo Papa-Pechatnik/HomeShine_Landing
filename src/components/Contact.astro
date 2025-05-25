@@ -3,6 +3,8 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
 ---
 
 <section class="contact text-basic text-basic--20">
+  <div class="contact--line-top" aria-hidden="true"></div>
+  <div class="contact--line-bottom" aria-hidden="true"></div>
   <div class="container">
     <div class="contact-box">
       <div class="contact-wrap">
@@ -17,11 +19,18 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
             <UnderlineH2 color="color-tertiary" />
           </div>
           <p class="contact-wrap__number contact--margin-top">+1 980 776 63 66</p>
-          <svg  class="contact-wrap__icon" xmlns="http://www.w3.org/2000/svg"
-                width="48" height="48" viewBox="0 0 48 48" fill="none" >
+          <svg
+            class="contact-wrap__icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
             <path
               d="M24 0C10.745 0 0 10.745 0 24s10.745 24 24 24 24-10.745 24-24S37.255 0 24 0m-8.625 9.533c.495-.029.941.267 1.28.791l3.281 6.223c.346.737.15 1.527-.366 2.054l-1.503 1.503a.74.74 0 0 0-.155.427c.576 2.231 2.325 4.29 3.867 5.704 1.543 1.416 3.2 3.332 5.353 3.785.266.075.592.101.782-.076l1.746-1.778c.603-.457 1.475-.678 2.118-.305h.03l5.92 3.496c.87.544.96 1.597.337 2.238l-4.078 4.046c-.602.617-1.402.825-2.18.826-3.437-.103-6.686-1.79-9.354-3.525-4.38-3.186-8.397-7.137-10.919-11.912-.967-2.002-2.103-4.556-1.995-6.79.01-.841.237-1.665.83-2.207l4.077-4.078c.318-.27.632-.404.929-.422"
-              fill="#E1F5FE">
+              fill="#E1F5FE"
+            >
             </path>
           </svg>
           <!-- <a href="#" class="contact-wrap__call-tel"></a> -->
@@ -33,12 +42,31 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
 
 <style>
   .contact {
-    z-index: -2;
+    position: relative;
     --contact-padding: clamp(2.25rem, 2.6204rem + -0.4938vw, 2.5rem);
     padding-top: var(--contact-padding);
     padding-bottom: var(--contact-padding);
     background-color: var(--color-secondary);
     color: var(--color-tertiary);
+  }
+
+  .contact--line-top,
+  .contact--line-bottom {
+    position: absolute;
+    content: "";
+    background: linear-gradient(180deg, #e1f5fe 100%, #0a93ef 100%);
+    height: 0.625rem;
+    width: clamp(16.75rem, 50vw, 21.25rem);
+  }
+
+  .contact--line-top {
+    left: 0;
+    top: -10px;
+  }
+
+  .contact--line-bottom {
+    right: 0;
+    bottom: -10px;
   }
 
   .contact-wrap {
@@ -66,7 +94,7 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     align-items: center;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto);
-    column-gap: 36px;
+    column-gap: 2.25rem;
     grid-template-areas:
       "text icon"
       "numb icon";
@@ -107,15 +135,26 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
       justify-items: center;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(3, auto);
-      column-gap: 36px;
       grid-template-areas:
         "text"
         "icon"
         "numb";
+      width: 100%;
     }
 
     .contact-wrap__icon {
-      margin-top: 20px;
+      margin-top: 1.25rem;
+    }
+
+    .contact--line-top {
+      background: linear-gradient(90deg, #e1f5fe 0%, #0a93ef 100%);
+      left: auto;
+      right: 0;
+    }
+    .contact--line-bottom {
+      background: linear-gradient(270deg, #e1f5fe 0%, #0a93ef 100%);
+      left: 0;
+      right: auto;
     }
   }
 </style>
