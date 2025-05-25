@@ -1,9 +1,14 @@
 ---
+interface Props {
+    text: string;
+    className?: string;
+}
 
+const { text, className} = Astro.props; 
 ---
 
-<button class="flex btn btn-m">
-  <span class="btn-text">CONTACT US</span>
+<button class:list={["flex btn",  className]}>
+  <span class="btn-text">{text}</span>
   <span class="btn-icon">&#10005;</span>
 </button>
 
@@ -22,6 +27,10 @@
     border-radius: 100px;
     cursor: pointer;
     transition: all 1s;
+
+    width: 100%;
+    height: 40px;
+    padding: 10px;
   }
 
   .btn-text {
@@ -29,15 +38,8 @@
     white-space: nowrap;
   }
 
-  .btn-m {
+  .btn-small {
     max-width: 200px;
-    width: 100%;
-    height: 40px;
-    padding: 10px;
-  }
-
-  .btn-l {
-    padding: 10px 36px;
   }
 
   .btn-icon {

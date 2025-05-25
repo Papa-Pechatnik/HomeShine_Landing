@@ -22,15 +22,13 @@
 
     --width-container: 1254px; /* !!! 1196px + 2*28px потім треба змінити */
 
-    --padding-100: 100px;
-    --padding-134: 134px;
-    --padding-150: 150px;
-
+    /* padding, margin, gap */
+    --padding-35: 2.1875rem;
+    --indent_150-40: clamp(2.5rem, -0.8102rem + 13.5802vw, 9.375rem);
     --gap: 20px;
 }
 
 .container {
-
     margin-inline: auto;
     max-width: var(--width-container);
     width: 100%;
@@ -40,10 +38,21 @@
 .text-h1 {
     font-family: var(--font-family-secondary);
     font-weight: 700;
+
     font-size: clamp(3.438rem, 2.204rem + 5.062vw, 6rem); /*96 55 при 1200 vs 390*/
     line-height: 125%;
     letter-spacing: 0.02em;
 }
+
+.text-h2 {
+    font-family: var(--font-family-secondary);
+    font-weight: 700;
+
+    font-size: 2.625rem;
+    line-height: 129%;
+    letter-spacing: 0.01em;
+}
+
 .text-s {
     font-family: var(--font-family-primary);
     font-weight: 400;
@@ -55,12 +64,82 @@
     }
 }
 
+.text-basic {
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 175%;
+    letter-spacing: 0.01em;
+}
+
 .flex {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.w-387 {
+    max-width: 387px;
+    width: 100%;
+}
+
+.w-488 {
+    max-width: 488px;
+    width: 100%;
+}
+.w-692 {
+    max-width: 692px;
+    width: 100%;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* .col-2 {
 
 } */
+
+/* corner*/
+
+.corner-box {
+    --step-img: calc(-1 * clamp(0.625rem, 0.3241rem + 1.2346vw, 1.25rem));
+    --corner-top-width: "";
+    --corner-top-height: "";
+    --corner-bottom-width: "";
+    --corner-bottom-height: "";
+    position: relative;
+    max-width: inherit;
+    width: inherit;
+    height: 100%;
+    background-color: var(--color-main);
+}
+.corner-box__top,
+.corner-box__bottom {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    background: linear-gradient(135deg, #e1f5fe 0%, #0a93ef 100%);
+}
+
+.corner-box__top {
+    top: var(--step-img);
+    right: var(--step-img);
+    width: var(--corner-top-width);
+    height: var(--corner-top-height);
+}
+
+.corner-box__bottom {
+    bottom: var(--step-img);
+    left: var(--step-img);
+    width: var(--corner-bottom-width);
+    height: var(--corner-bottom-height);
+}
+
+@media screen and (max-width: 992.98px) {
+    .w-488, .w-692  {
+     max-width: 590px;
+    }
+}

@@ -1,0 +1,21 @@
+---
+interface Props {
+    width: string | number;
+}
+
+const {width} = Astro.props;
+
+const widthUnderline = typeof width === 'number' 
+                   ? `${width}px` 
+                   : width;
+---
+<div class="underline" aria-hidden="true"></div>
+
+<style define:vars={{ widthUnderline }}>
+    .underline {
+    width: var(--widthUnderline);
+    height: 5px;
+    background-color: var(--color-secondary);
+    margin-top: 16px;
+}
+</style>

@@ -1,5 +1,104 @@
 ---
+import ButtonSmall from "./elements/ButtonSmall.astro";
 
+import { Image } from "astro:assets";
+import imgHouse from "../assets/img/house-1.png";
+import UnderlineH2 from "./elements/UnderlineH2.astro";
 ---
 
-<h1>About</h1>
+<section class="about">
+  <div class="container">
+    <div class="about-wrap">
+      <section class="about-video w-692">
+        <div class="corner-box">
+          <div class="corner-box__top" aria-hidden="true"></div>
+          <Image class="img-cover" src={imgHouse} width={590} height={601} alt="house" />
+        </div>
+      </section>
+      <section class="about-content w-488">
+        <div class="about-content__wrap w-387">
+          <div>
+            <h2 class="about-title text-h2">About homeShine painting</h2>
+            <UnderlineH2 color="secondary" />
+          </div>
+          <p class="about-description text-basic">
+            With HomeShine Painting, you're choosing skilled professionals dedicated to transforming your home. From
+            flawless interior finishes to durable exterior coatings, kitchen and deck revitalization, and personalized
+            color selection, we ensure exceptional results every time.
+          </p>
+          <ButtonSmall textButton="CONTACT US" />
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding-top: var(--indent_150-40);
+    padding-bottom: var(--indent_150-40);
+  }
+  .about-wrap {
+    display: flex;
+    justify-content: space-between;
+    column-gap: var(--gap);
+    row-gap: 3.75rem;
+  }
+
+  .about-title {
+    color: var(--color-primary);
+    text-transform: capitalize;
+  }
+
+  .about-description {
+    color: var(--color-text-primary);
+  }
+
+  .about-video {
+    height: 28.25rem;
+  }
+
+  .about-video .corner-box {
+    --corner-top-width: 60%;
+    --corner-top-height: 19.875rem;
+  }
+
+  .about-content {
+    display: flex;
+    justify-content: end;
+  }
+
+  .about-content__wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: var(--padding-35);
+  }
+
+  @media screen and (max-width: 768.98px) {
+    .about-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-description {
+      margin-top: 3.75rem;
+      margin-bottom: 3.75rem;
+    }
+
+    .about-content .w-387 {
+      max-width: 100%;
+    }
+
+    .about-content__wrap {
+      padding-left: 0;
+    }
+
+    .about-video .corner-box {
+      --corner-top-width: 84%;
+      --corner-top-height: 19.875rem;
+    }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  textButton: string;
+}
+
+const { textButton } = Astro.props;
+---
+
+<Button text={textButton} className="btn-small"/>
+
+

@@ -1,7 +1,8 @@
 ---
-import Button from "./elements/Button.astro";
+import ButtonSmall from "./elements/ButtonSmall.astro";
+import UnderlineH1 from "./elements/UnderlineH1.astro";
+
 import { Image } from "astro:assets";
-// import imgHouse from "../assets/img/test.jpg";
 import imgHouse from "../assets/img/house-1.png";
 ---
 
@@ -13,17 +14,20 @@ import imgHouse from "../assets/img/house-1.png";
           <h1 class="hero-title text-h1">
             <span class="hero-title__e1">home</span>Shine
           </h1>
-          <p class="hero-subtitle">PAINTING</p>
+          <p class="hero-subtitle text-underline">PAINTING</p>
+          <UnderlineH1 width={270} />
           <p class="hero-description text-s">
             Transform Your Home With a Professional Touch Beautiful interiors. Durable exteriors. Flawless decks &
             kitchens.
           </p>
-          <Button />
+          <ButtonSmall textButton="CONTACT US" />
         </div>
       </section>
       <section class="hero-foto">
-        <div class="hero-foto-wrap">
-          <Image class="hero-foto-wrap__img" src={imgHouse} width={590} height={601} alt="house" />
+        <div class="corner-box">
+          <div class="corner-box__top" aria-hidden="true"></div>
+          <div class="corner-box__bottom" aria-hidden="true"></div>
+          <Image class="img-cover" src={imgHouse} width={590} height={601} alt="house" />
         </div>
       </section>
     </div>
@@ -44,9 +48,9 @@ import imgHouse from "../assets/img/house-1.png";
 
   .hero-content {
     flex: 1;
-    max-width: 590px;
-    padding-right: 35px;
-    margin-bottom: 46px;
+    max-width: 36.875rem;
+    padding-right: var(--padding-35);
+    margin-bottom: 2.875rem;
   }
 
   .hero-title {
@@ -59,6 +63,7 @@ import imgHouse from "../assets/img/house-1.png";
   }
 
   .hero-subtitle {
+    --width-underline: 16.875rem;
     position: relative;
     font-family: var(--font-family-secondary);
     font-weight: 500;
@@ -76,60 +81,25 @@ import imgHouse from "../assets/img/house-1.png";
     text-transform: uppercase;
   }
 
-  .hero-subtitle::after {
-    position: absolute;
-    content: "";
-    width: 270px;
-    height: 5px;
-    left: 0;
-    bottom: -21px;
-    background-color: var(--color-secondary);
-  }
-
   .hero-description {
-    margin-top: clamp(2.5rem, 1.8981rem + 2.4691vw, 3.75rem); /*60 40 */
+    margin-top: clamp(1.5rem, 0.8981rem + 2.4691vw, 2.75rem); /*44 24 */
     margin-bottom: clamp(3.75rem, 2.8472rem + 3.7037vw, 5.625rem); /*90 60 */
   }
 
   .hero-foto {
     max-width: 590px;
     width: 100%;
-    height: 601px;
+    height: 37.5625rem;
   }
 
-  .hero-foto-wrap {
-    --step-img: calc(-1 * clamp(0.625rem, 0.3241rem + 1.2346vw, 1.25rem));
-    position: relative;
-    max-width: inherit;
-    width: inherit;
-    height: 100%;
-    background-color: var(--color-main);
-  }
-  .hero-foto-wrap::after,
-  .hero-foto-wrap::before {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    width: 75%;
-    height: clamp(10rem, 0.6713rem + 38.2716vw, 29.375rem); /** 478 160 при 1200 vs 390*/
-    background: linear-gradient(135deg, #e1f5fe 0%, #0a93ef 100%);
+  /** corner */
+  .hero-foto .corner-box {
+    --corner-bottom-width: 75%;
+    --corner-bottom-height: clamp(10rem, 0.6713rem + 38.2716vw, 29.375rem); /** 478 160 при 1200 vs 390*/
+    --corner-top-width: 75%;
+    --corner-top-height: clamp(10rem, 0.6713rem + 38.2716vw, 29.375rem); /** 478 160 при 1200 vs 390*/
   }
 
-  .hero-foto-wrap::after {
-    top: var(--step-img);
-    right: var(--step-img);
-  }
-
-  .hero-foto-wrap::before {
-    bottom: var(--step-img);
-    left: var(--step-img);
-  }
-
-  .hero-foto-wrap__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   @media screen and (max-width: 992.98px) {
     .hero-wrap {
       flex-direction: column;
@@ -145,14 +115,13 @@ import imgHouse from "../assets/img/house-1.png";
       height: auto;
     }
 
-    .hero-foto-wrap {
+    /** corner */
+    .hero-foto .corner-box {
       aspect-ratio: 590 / 601;
+      --corner-top-width: 50vw;
+      --corner-bottom-width: 50vw;
     }
 
-    .hero-foto-wrap::after,
-    .hero-foto-wrap::before {
-      width: 50vw;
-    }
   }
 
   @media screen and (max-width: 575.98px) {
