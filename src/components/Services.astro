@@ -1,5 +1,54 @@
 ---
-
+import ServicesCard from "./block/ServicesCard.astro";
+import UnderlineH2 from "./elements/UnderlineH2.astro";
 ---
 
-<h1>Services</h1>
+<section class="services">
+  <div class="container">
+    <header class="services-header">
+      <h2 class="text-h2 text-capitalize">Introducing Our Services</h2>
+      <UnderlineH2 />
+      <p class="services-header__description text-basic text-basic--20">
+        We are dedicated to creating spaces which meet clients' needs, requirements, and expectations.
+      </p>
+    </header>
+    <main class="services-slider">
+      Слайдер
+      <!-- <ServicesCard/>
+      <ServicesCard/>
+      <ServicesCard/>
+      <ServicesCard/> -->
+    </main>
+  </div>
+</section>
+<style>
+  .services {
+    padding-top: var(--indent_100-40);
+    padding-bottom: var(--indent_100-40);
+    background-color: var(--color-tertiary);
+  }
+
+  .services-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .services-header h2 {
+    color: var(--color-primary);
+  }
+
+  .services-header__description {
+    margin-top: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .services-slider {
+    display: flex;
+    justify-content: space-around;
+    column-gap: var(--gap);
+
+    margin-top: clamp(2.25rem, 2.6204rem + -0.4938vw, 2.5rem);
+  }
+</style>

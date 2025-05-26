@@ -1,5 +1,124 @@
 ---
-
+import { Image } from "astro:assets";
+import UnderlineH2 from "./elements/UnderlineH2.astro";
+import ButtonSmall from "./elements/ButtonSmall.astro";
+import img from "../assets/img/test.jpg";
 ---
 
-<h1>Gallery</h1>
+<section class="gallery">
+  <div class="container">
+    <div class="gallery-wrap">
+      <header class="gallery-header">
+        <h2 class="text-h2 text-capitalize">Gallery</h2>
+        <UnderlineH2 />
+        <p class="gallery-header__description text-basic text-basic--20">
+          See the Shine. Hear the Results. <br />
+          Take a look at some of HomeShine Painting’s latest transformations — and hear what our happy homeowners have to
+          say.
+        </p>
+      </header>
+    </div>
+  </div>
+  <main class="gallery-masonry">
+    <div class="gallery-masonry__container">
+      <ul class="masonry-grid">
+        <li class="masonry-item1">
+          <Image class="img-cover" src={img} width={693} height={460} alt="house" />
+        </li>
+        <li class="masonry-item2">
+          <Image class="img-cover" src={img} width={693} height={460} alt="house" />
+        </li>
+        <li class="masonry-item3">
+          <Image class="img-cover" src={img} width={693} height={460} alt="house" />
+        </li>
+        <li class="masonry-item4">
+          <Image class="img-cover" src={img} width={693} height={460} alt="house" />
+        </li>
+        <li class="masonry-item5">
+          <Image class="img-cover" src={img} width={693} height={460} alt="house" />
+        </li>
+      </ul>
+    </div>
+  </main>
+  <ButtonSmall textButton="VIEW ALL" />
+</section>
+
+<style>
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: var(--indent_150-40);
+    padding-bottom: var(--indent_150-60);
+  }
+
+  .gallery-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 820px;
+  }
+
+  .gallery-header h2 {
+    color: var(--color-primary);
+  }
+
+  .gallery-header__description {
+    margin-top: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .gallery-masonry {
+    width: 100%;
+    margin-top: var(--indent_60-44);
+    margin-bottom: 60px;
+  }
+  .gallery-masonry__container{
+    margin-inline: auto;
+    max-width: var(--width-container);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--step-img);
+    padding: 0 var(--pad-container);
+  }
+
+  .masonry-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, minmax(auto, 220px)) minmax(auto, 460px);
+    gap: var(--step-img);
+    aspect-ratio: 1200 / 940;
+  }
+
+  .masonry-item1 {
+    grid-area: 1 / 1 / 3 / 8;
+  }
+  .masonry-item3 {
+    grid-area: 2 / 8 / 3 / 13;
+  }
+  .masonry-item2 {
+    grid-area: 1 / 8 / 2 / 13;
+  }
+  .masonry-item4 {
+    grid-area: 3 / 1 / 4 / 6;
+  }
+  .masonry-item5 {
+    grid-area: 3 / 6 / 4 / 13;
+  }
+
+  @media screen and (max-width: 575.98px) {
+    .gallery-masonry__container{
+padding: 0;
+    }
+  }
+</style>

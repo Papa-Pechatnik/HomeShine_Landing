@@ -9,14 +9,15 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     <div class="contact-box">
       <div class="contact-wrap">
         <section class="contact-wrap__info">
-          <p class="contact--margin-bottom">Residential & Deck Painting services</p>
-          <UnderlineH2 color="color-tertiary" />
-          <p class="contact--margin-top">by HomeShine Painting</p>
+          <p class="contact--margin-bottom text-capitalize">Residential & Deck Painting services</p>
+          <UnderlineH2 color="tertiary" />
+          <p class="contact--margin-top">
+            by <span class="text-capitalize">HomeShine Painting</span></p>
         </section>
         <section class="contact-wrap__call">
           <div class="contact-wrap__call-text">
             <p class="contact--margin-bottom">Call now for a free estimate:</p>
-            <UnderlineH2 color="color-tertiary" />
+            <UnderlineH2 color="tertiary" />
           </div>
           <p class="contact-wrap__number contact--margin-top">+1 980 776 63 66</p>
           <svg
@@ -75,10 +76,6 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     align-items: center;
     column-gap: var(--gap);
     row-gap: 3.75rem;
-  }
-
-  .contact-wrap__info {
-    text-transform: capitalize;
   }
 
   .contact--margin-bottom {

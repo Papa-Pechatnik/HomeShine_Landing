@@ -1,11 +1,11 @@
 ---
 interface Props {
-    color: string;
+    color?: string;
 }
 
 const {color} = Astro.props;
 
-let colorUnderline = `var(--${color})`;
+const colorUnderline: string = color ? `var(--color-${color})` : "var(--color-secondary)";
 ---
 
 <div class="underline-h2" aria-hidden="true"></div>

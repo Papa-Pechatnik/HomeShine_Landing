@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import imgHouse from "../assets/img/house-1.png";
+import imgPoster from "../assets/img/house-video-poster.png";
 import UnderlineH2 from "./elements/UnderlineH2.astro";
 import ButtonSmall from "./elements/ButtonSmall.astro";
 ---
@@ -11,14 +11,14 @@ import ButtonSmall from "./elements/ButtonSmall.astro";
       <section class="about-video w-692">
         <div class="corner-box">
           <div class="corner-box__top" aria-hidden="true"></div>
-          <Image class="img-cover" src={imgHouse} width={590} height={601} alt="house" />
+          <Image class="img-cover" src={imgPoster} width={692} height={452} alt="house" />
         </div>
       </section>
       <section class="about-content w-488">
         <div class="about-content__wrap w-387">
           <div>
             <h2 class="about-title text-h2">About homeShine painting</h2>
-            <UnderlineH2 color="color-secondary" />
+            <UnderlineH2/>
           </div>
           <p class="about-description text-basic text-basic--16">
             With HomeShine Painting, you're choosing skilled professionals dedicated to transforming your home. From

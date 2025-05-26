@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import imgHouse from "../../assets/img/test.jpg";
+---
+
+<div class="services-card w-285">
+  <div class="services-card__img">
+    <Image class="img-cover" src={imgHouse} width={285} height={285} alt="house" />
+  </div>
+  <h3 class="services-card__title text-h3 text-capitalize">Interior Painting</h3>
+  <p class="services-card__description text-basic text-basic--16">
+    From walls to ceilings and trim, HomeShine Painting brings color and care into your home. Ideal for living rooms,
+    bedrooms, offices, and more.
+  </p>
+</div>
+
+<style>
+  .services-card__img {
+    width: inherit;
+    height: 17.8125rem;
+  }
+
+  .services-card__title {
+    color: var(--color-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .services-card__description {
+    color: var(--color-text-primary);
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+</style>
