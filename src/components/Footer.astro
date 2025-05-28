@@ -1,5 +1,139 @@
 ---
-
+import UnderlineH2 from "./elements/UnderlineH2.astro";
 ---
 
-<h1>footer</h1>
+<section class="footer">
+  <div class="container">
+    <div class="footer-wrap">
+      <section class="footer-content w-692">
+        <div class="footer-content-wrap w-588">
+          <header class="footer-header">
+            <h2 class="text-h2">Let’s Paint Something Beautiful Together</h2>
+            <UnderlineH2 />
+          </header>
+          <p class="text-basic text-basic--20 footer-content__description">
+            Whether you're ready to start next week or just have a few questions — HomeShine Painting is here to help.
+          </p>
+          <p class="footer-content__text text-basic text-basic--16">
+            Contact in any convenient way to schedule a meeting with our experts or discuss everything during the phone
+            call with our manager. After the meeting or call, you will get a free design project and a cost sheet.
+          </p>
+        </div>
+      </section>
+      <section class="footer-address w-488">
+        <div class="footer-address-wrap w-285">
+          <ul class="footer-address__item">
+            <li class="footer-address__item-name text-basic--20">Phone</li>
+            <li class="text-basic text-basic--20"><a class="footer-address__item-link" href="tel:+">телефон</a></li>
+          </ul>
+          <ul class="footer-address__item">
+            <li class="footer-address__item-name text-basic--20">E-Mail</li>
+            <li class="text-basic text-basic--20">
+              <a class="footer-address__item-link" href="#">
+                info@
+              </a>
+            </li>
+          </ul>
+          <ul class="footer-address__item">
+            <li class="footer-address__item-name text-basic--20">Address</li>
+            <li class="text-basic text-basic--20">
+              <address class="footer-address__item-link">
+                <a class="footer-address__item-link" href="#"> Адрес с переходом на гугл карту </a>
+              </address>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div>Лого Меню Дизайнер</div>
+  </div>
+</section>
+<style>
+  .footer {
+    background-color: var(--color-primary);
+    padding-bottom: 40px;
+  }
+  .footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    column-gap: var(--gap);
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .footer-header h2 {
+    color: var(--color-main);
+  }
+
+  .footer-content {
+    min-width: 412px;
+  }
+
+  .footer-content-wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+  }
+  .footer-content__description {
+    color: var(--color-main);
+    line-height: 154%;
+    letter-spacing: 0.01em;
+  }
+
+  .footer-content__text {
+    color: var(--color-tertiary);
+    line-height: 180%;
+  }
+
+  .footer-address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-address-wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  .footer-address__item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-address__item-name {
+    font-family: var(--font-family-primary);
+    font-weight: 700;
+    line-height: 66%;
+    letter-spacing: 0.13em;
+    color: var(--color-secondary);
+  }
+
+  .footer-address__item-link,
+  .footer-address__item-text {
+    font-style: normal;
+    line-height: 180%;
+    color: var(--color-tertiary);
+  }
+
+  @media screen and (max-width: 991.98px) {
+    .footer-wrap {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      row-gap: 90px;
+    }
+
+    .footer-address {
+      display: flex;
+      justify-content: start;
+    }
+
+    .footer-address .w-285 {
+      max-width: 70%;
+    }
+  }
+</style>

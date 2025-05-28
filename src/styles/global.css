@@ -21,8 +21,8 @@
     --font-family-secondary: "Work Sans Variable", sans-serif;
     /* --font-size-primary: 14px; */
 
-    --width-container: 1254px; /* !!! 1196px + 2*28px потім треба змінити */
-    --pad-container: 28px; /*122 20 при 1200 vs 390*/ /* !!! 1196px + 2*28px потім треба змінити */
+    --width-container: 1256px; /* !!! 1200px + 2*28px потім треба змінити */
+    --pad-container: 28px; /*122 20 при 1200 vs 390*/ /* !!! 1200px + 2*28px потім треба змінити */
     /* padding, margin, gap */
     --padding-35: 2.1875rem;
     /* 1200 vs 390*/
@@ -81,6 +81,7 @@
 .text-basic {
     font-family: var(--font-family-primary);
     font-weight: 400;
+
 }
 
 .text-basic--16 {
@@ -117,6 +118,12 @@
     max-width: 488px;
     width: 100%;
 }
+
+.w-588 {
+    max-width: 588px;
+    width: 100%;
+}
+
 .w-692 {
     max-width: 692px;
     width: 100%;
