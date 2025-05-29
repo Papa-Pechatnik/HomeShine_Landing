@@ -2,8 +2,15 @@
 import "../styles/global.css";
 import '@fontsource-variable/roboto';
 import '@fontsource-variable/work-sans';
----
 
+
+interface Props {
+	title: string;
+	author?: string;
+}
+
+const { title, author} = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -11,7 +18,8 @@ import '@fontsource-variable/work-sans';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Home | HomeShine</title>
+		<meta name="author" content={author} />
+		<title>{`HomeShine | ${title}`}</title>
 	</head>
 	<body>
 		<slot />

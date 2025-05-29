@@ -11,10 +11,11 @@ import Reviews from '../components/Reviews.astro';
 import Services from '../components/Services.astro';
 import Layout from '../layouts/Layout.astro';
 
-
+const author = "Web developer by Sopun Yuriy";
+const page = "Home";
 ---
 
-<Layout>
+<Layout title={page} author={author}/>
 	 <Header/>
 	<!--<Hero/>
 	<Contact/>

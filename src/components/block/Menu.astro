@@ -32,13 +32,11 @@ const NavLinks = [
     <ul class="menu-items">
       { NavLinks.map((item) => 
         <li>
-            <a class="menu-link"
-            target="blank" 
-            href={item.href} 
-            title={item.title}>{item.title}
-            </a>
+          <a class="menu-link" target="_blank" rel="noopener noreferrer" href={item.href}>
+            {item.title}
+          </a>
         </li>
-        ) }
+        )}
     </ul>
     <NavSocial className="nav-social--activ" />
   </nav>
@@ -197,7 +195,7 @@ const NavLinks = [
       width: 0;
       height: 0;
       transition: all 1s ease-in-out;
-      padding-top: 24px;
+      padding-top: 1.5rem;
       background-color: var(--color-main);
     }
 
@@ -214,7 +212,7 @@ const NavLinks = [
     .menu-items {
       flex-direction: column;
       align-items: center;
-      row-gap: 40px;
+      row-gap: 2.5rem;
     }
   }
 </style>
