@@ -2,31 +2,23 @@
 import IconYoutube from "../elements/IconYoutube.astro";
 import IconTelegram from "../elements/IconTelegram.astro";
 import IconPhone from "../elements/IconPhone.astro";
-
 interface Props {
   className?: string;
 }
 
 const { className } = Astro.props;
+
+import { getCollection } from 'astro:content';
+const contactEntries = await getCollection('information');
+const contactInfo = contactEntries[0].data;
 ---
 
 <nav class:list={["nav-social", className]}>
   <ul class="nav-items">
-    <li class="nav-item">
-      <a href="#">
-        <IconYoutube />
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="#">
-        <IconTelegram />
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="#">
-        <IconPhone />
-      </a>
-    </li>
+    <li class="nav-item"><IconYoutube /></li>
+    <li class="nav-item"><IconTelegram /></li>
+    <li class="nav-item"><IconPhone /></li>
+
   </ul>
 </nav>
 
