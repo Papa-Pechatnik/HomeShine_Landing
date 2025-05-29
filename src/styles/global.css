@@ -38,8 +38,7 @@
     --indent_60-40: clamp(2.5rem, 1.7778rem + 2.963vw, 4rem);
     --indent_44-24:clamp(1.5rem, 0.8981rem + 2.4691vw, 2.75rem);
     --indent_40-16: clamp(1rem, 0.2778rem + 2.963vw, 2.5rem);
-    
-    
+        
     --gap: 20px;
     --step-img: clamp(.625rem, 0.3241rem + 1.2346vw, 1.25rem);
 }
@@ -58,7 +57,7 @@
 }
 
 .text-h1 {
-    font-size: clamp(3.438rem, 2.204rem + 5.062vw, 6rem); /*96 55 при 1200 vs 390*/
+    font-size: clamp(3.4rem, 2.204rem + 5.062vw, 6rem); /*96 55 при 1200 vs 390*/
     line-height: 125%;
     letter-spacing: 0.02em;
 }

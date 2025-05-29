@@ -3,11 +3,12 @@ import Button from "./Button.astro";
 
 interface Props {
   textButton: string;
+  className2?: string;
 }
 
-const { textButton } = Astro.props;
+const { textButton, className2} = Astro.props;
 ---
 
-<Button text={textButton} className="btn-small"/>
+<Button text={textButton} className="btn-small" className1=`${className2}`/>
 
 

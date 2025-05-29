@@ -10,7 +10,7 @@ import imgHouse from "../assets/img/house-1.png";
   <div class="container">
     <div class="hero-wrap">
       <section class="hero-content">
-        <div>
+        <div class="hero-content__wrap">
           <h1 class="hero-title text-h1">
             <span class="hero-title__e1">home</span>Shine
           </h1>
@@ -20,7 +20,7 @@ import imgHouse from "../assets/img/house-1.png";
             Transform Your Home With a Professional Touch Beautiful interiors. Durable exteriors. Flawless decks &
             kitchens.
           </p>
-          <ButtonSmall textButton="CONTACT US" />
+          <ButtonSmall textButton="CONTACT US" className2="btn-center"/>
         </div>
       </section>
       <section class="hero-foto">
@@ -101,6 +101,11 @@ import imgHouse from "../assets/img/house-1.png";
   }
 
   @media screen and (max-width: 992.98px) {
+    .hero-content__wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
     .hero-wrap {
       flex-direction: column;
       align-items: center;
