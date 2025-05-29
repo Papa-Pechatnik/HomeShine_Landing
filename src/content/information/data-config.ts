@@ -6,6 +6,7 @@ const contactCollection = defineCollection({
     phone: z.string(),
     email: z.string(),
     address: z.string(),
+    gpsAddress: z.string(),
     youtube: z.string(),
     telegram: z.string(),
   }),

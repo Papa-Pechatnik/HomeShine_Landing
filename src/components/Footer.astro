@@ -1,9 +1,14 @@
 ---
 import Logo from "./elements/Logo.astro";
 import UnderlineH2 from "./elements/UnderlineH2.astro";
+import Menu from "./block/Menu.astro";
+
+import { getCollection } from "astro:content";
+const contactEntries = await getCollection("information");
+const contactInfo = contactEntries[0].data;
 ---
 
-<section class="footer">
+<footer class="footer">
   <div class="container">
     <div class="footer-wrap">
       <section class="footer-content w-692">
@@ -25,31 +30,38 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
         <div class="footer-address-wrap w-285">
           <ul class="footer-address__item">
             <li class="footer-address__item-name text-basic--20">Phone</li>
-            <li class="text-basic text-basic--20"><a class="footer-address__item-link" href="tel:+">телефон</a></li>
+            <li class="text-basic text-basic--20">
+              <a class="footer-address__item-link" href=`tel:{contactInfo.phone}`>
+                {contactInfo.phone}
+              </a>
+            </li>
           </ul>
           <ul class="footer-address__item">
             <li class="footer-address__item-name text-basic--20">E-Mail</li>
             <li class="text-basic text-basic--20">
-              <a class="footer-address__item-link" href="#"> info@ </a>
+              <a class="footer-address__item-link" href=`mailto:${contactInfo.email}`>
+                {contactInfo.email}
+              </a>
             </li>
           </ul>
           <ul class="footer-address__item">
             <li class="footer-address__item-name text-basic--20">Address</li>
             <li class="text-basic text-basic--20">
               <address class="footer-address__item-link">
-                <a class="footer-address__item-link" href="#"> Адрес с переходом на гугл карту </a>
+                <a class="footer-address__item-link" href={contactInfo.gpsAddress}>{contactInfo.address}</a>
               </address>
             </li>
           </ul>
         </div>
       </section>
     </div>
-    <div>
+    <nav class="footer-nav">
       <Logo />
-      Лого Меню Дизайнер
-    </div>
+      <Menu color1="tertiary" color2="tertiary" />
+      <a class="footer-nav__link text-basic text-basic--16" href="http://">Designed by S.M.</a>
+    </nav>
   </div>
-</section>
+</footer>
 <style>
   .footer {
     background-color: var(--color-primary);
@@ -117,6 +129,17 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
   .footer-address__item-link,
   .footer-address__item-text {
     font-style: normal;
+    line-height: 180%;
+    color: var(--color-tertiary);
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-nav__link {
     line-height: 180%;
     color: var(--color-tertiary);
   }

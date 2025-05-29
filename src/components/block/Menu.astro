@@ -1,6 +1,16 @@
 ---
 import NavSocial from "./NavSocial.astro";
 
+interface Props {
+  color1?: string;
+  color2?: string;
+}
+
+const { color1, color2} = Astro.props;
+
+const colorVar: string = color1 ? `var(--color-${color1})` : "var(--color-primary)";
+const colorVarHover: string = color2 ? `var(--color-${color2})` : "var(--color-secondary)";
+
 const NavLinks = [
   { title: "About Us", href: "#" },
   { title: "Our Services", href: "#" },
@@ -62,7 +72,7 @@ const NavLinks = [
   });
 </script>
 
-<style>
+<style define:vars={{ colorVar, colorVarHover }}>
   .menu {
     align-self: start;
   }
@@ -83,11 +93,11 @@ const NavLinks = [
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.5s;
-    color: var(--color-primary);
+    color: var(--colorVar);
   }
 
   .menu-items li:hover .menu-link {
-    color: var(--color-secondary);
+    color: var(--colorVarHover);
   }
 
   .menu-link:after {
@@ -98,7 +108,7 @@ const NavLinks = [
     bottom: -0.625rem;
     width: 0;
     height: 0.125rem;
-    background-color: var(--color-primary);
+    background-color: var(--colorVar);
     transition: width 0.5s;
   }
 
@@ -110,7 +120,7 @@ const NavLinks = [
     left: 0;
     bottom: -0.625rem;
     height: 0.125rem;
-    background-color: var(--color-secondary);
+    background-color: var(--colorVarHover);
     transition: width 0.5s;
   }
 
