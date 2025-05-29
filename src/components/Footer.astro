@@ -1,4 +1,5 @@
 ---
+import Logo from "./elements/Logo.astro";
 import UnderlineH2 from "./elements/UnderlineH2.astro";
 ---
 
@@ -29,9 +30,7 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
           <ul class="footer-address__item">
             <li class="footer-address__item-name text-basic--20">E-Mail</li>
             <li class="text-basic text-basic--20">
-              <a class="footer-address__item-link" href="#">
-                info@
-              </a>
+              <a class="footer-address__item-link" href="#"> info@ </a>
             </li>
           </ul>
           <ul class="footer-address__item">
@@ -45,7 +44,10 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
         </div>
       </section>
     </div>
-    <div>Лого Меню Дизайнер</div>
+    <div>
+      <Logo />
+      Лого Меню Дизайнер
+    </div>
   </div>
 </section>
 <style>
@@ -125,6 +127,10 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
       justify-content: space-between;
       align-items: center;
       row-gap: 90px;
+    }
+
+    .footer-content {
+      min-width: auto;
     }
 
     .footer-address {

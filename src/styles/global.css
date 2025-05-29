@@ -29,9 +29,13 @@
     --indent_200-90: clamp(5.625rem, 2.3148rem + 13.5802vw, 12.5rem);
     --indent_150-60: clamp(3.75rem, 1.0417rem + 11.1111vw, 9.375rem);
     --indent_150-40: clamp(2.5rem, -0.8102rem + 13.5802vw, 9.375rem);
+    --indent_134-44: clamp(2.75rem, 0.0417rem + 11.1111vw, 8.375rem);
     --indent_100-90: clamp(5.625rem, 5.3241rem + 1.2346vw, 6.25rem);
     --indent_100-40: clamp(2.5rem, 0.6944rem + 7.4074vw, 6.25rem);
+    --indent_66-8: clamp(0.5rem, -1.2454rem + 7.1605vw, 4.125rem);
     --indent_60-44: clamp(2.75rem, 2.2685rem + 1.9753vw, 3.75rem);
+    --indent_40-16: clamp(1rem, 0.2778rem + 2.963vw, 2.5rem);
+    
     --gap: 20px;
     --step-img: clamp(.625rem, 0.3241rem + 1.2346vw, 1.25rem);
 }
@@ -135,12 +139,13 @@
     object-fit: cover;
 }
 
-/* .col-2 {
-
-} */
+.img-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
 /* corner*/
-
 .corner-box {
     --corner-top-width: "";
     --corner-top-height: "";
@@ -173,6 +178,16 @@
     width: var(--corner-bottom-width);
     height: var(--corner-bottom-height);
 }
+
+/* icon */
+.icon-fill {
+    fill: var(--color-secondary);
+    transition: 0.5s;
+  }
+
+  /* .icon:hover .icon-fill {
+    fill: red;
+  } */
 
 @media screen and (max-width: 992.98px) {
     .w-488,

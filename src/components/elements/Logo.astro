@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../../public/logo-homeshine.svg";
+
+---
+
+<a href="/" class="logo">
+  <Image class="img-contain" src={logo} width={98} alt="logo-homeshine" />
+</a>
+
+<style>
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 6.375rem;
+    height: auto;
+    padding: .125rem;
+    background-color: var(--color-main);
+  }
+</style>

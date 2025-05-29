@@ -1,5 +1,30 @@
 ---
-
+import Logo from "./elements/Logo.astro";
+import Menu from "./block/Menu.astro";
+import NavSocial from "./block/NavSocial.astro";
 ---
 
-<h1>Header</h1>
+<section class="header">
+  <div class="container">
+    <div class="header-wrap">
+      <Logo widthLogo={98} />
+      <Menu />
+      <NavSocial />
+    </div>
+  </div>
+</section>
+
+<style>
+  .header {
+    padding-top: var(--indent_40-16);
+    padding-bottom: var(--indent_66-8);
+    background-color: var(--color-main);
+  }
+
+  .header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+</style>
