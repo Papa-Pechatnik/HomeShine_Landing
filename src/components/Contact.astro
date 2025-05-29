@@ -1,5 +1,14 @@
 ---
 import UnderlineH2 from "./elements/UnderlineH2.astro";
+import IconPhone from "./elements/IconPhone.astro";
+
+
+import { getCollection } from "astro:content";
+const contactEntries = await getCollection("information");
+const contactInfo = contactEntries[0].data;
+
+import {formatPhoneNumber} from "../ts/formatPhone.ts";
+const PhoneNumber = formatPhoneNumber(contactInfo.phone);
 ---
 
 <section class="contact text-basic text-basic--20">
@@ -12,29 +21,19 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
           <p class="contact--margin-bottom text-capitalize">Residential & Deck Painting services</p>
           <UnderlineH2 color="tertiary" />
           <p class="contact--margin-top">
-            by <span class="text-capitalize">HomeShine Painting</span></p>
+            by <span class="text-capitalize">HomeShine Painting</span>
+          </p>
         </section>
         <section class="contact-wrap__call">
           <div class="contact-wrap__call-text">
             <p class="contact--margin-bottom">Call now for a free estimate:</p>
             <UnderlineH2 color="tertiary" />
           </div>
-          <p class="contact-wrap__number contact--margin-top">+1 980 776 63 66</p>
-          <svg
-            class="contact-wrap__icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-          >
-            <path
-              d="M24 0C10.745 0 0 10.745 0 24s10.745 24 24 24 24-10.745 24-24S37.255 0 24 0m-8.625 9.533c.495-.029.941.267 1.28.791l3.281 6.223c.346.737.15 1.527-.366 2.054l-1.503 1.503a.74.74 0 0 0-.155.427c.576 2.231 2.325 4.29 3.867 5.704 1.543 1.416 3.2 3.332 5.353 3.785.266.075.592.101.782-.076l1.746-1.778c.603-.457 1.475-.678 2.118-.305h.03l5.92 3.496c.87.544.96 1.597.337 2.238l-4.078 4.046c-.602.617-1.402.825-2.18.826-3.437-.103-6.686-1.79-9.354-3.525-4.38-3.186-8.397-7.137-10.919-11.912-.967-2.002-2.103-4.556-1.995-6.79.01-.841.237-1.665.83-2.207l4.077-4.078c.318-.27.632-.404.929-.422"
-              fill="#E1F5FE"
-            >
-            </path>
-          </svg>
-          <!-- <a href="#" class="contact-wrap__call-tel"></a> -->
+          <p class="contact-wrap__call-number contact--margin-top">{PhoneNumber}</p>
+          <div class="contact-wrap__call-icon contact-wrap__icon">
+            <IconPhone color="tertiary" className="icon-big" />
+          </div>
+          <a class="contact-wrap__call-link" href=`tel:{contactInfo.phone}`></a>
         </section>
       </div>
     </div>
@@ -49,7 +48,7 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     padding-bottom: var(--contact-padding);
     background-color: var(--color-secondary);
     color: var(--color-tertiary);
-}
+  }
 
   .contact--line-top,
   .contact--line-bottom {
@@ -87,6 +86,7 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
   }
 
   .contact-wrap__call {
+    position: relative;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(2, auto);
@@ -103,17 +103,28 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     grid-area: text;
   }
 
-  .contact-wrap__number {
+  .contact-wrap__call-number {
     grid-area: numb;
   }
 
-  .contact-wrap__icon {
+  .contact-wrap__call-icon {
     grid-area: icon;
+    width: 3rem;
+    aspect-ratio: 1;
+  }
+
+  .contact-wrap__call-link {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
   }
 
   @media screen and (max-width: 992.98px) {
     .contact {
-        text-align: center;
+      text-align: center;
     }
     .contact-box {
       display: flex;
@@ -142,7 +153,7 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
       width: 100%;
     }
 
-    .contact-wrap__icon {
+    .contact-wrap__call-icon {
       margin-top: 1.25rem;
     }
 

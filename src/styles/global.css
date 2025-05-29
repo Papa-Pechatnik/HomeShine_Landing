@@ -184,6 +184,11 @@
 }
 
 /* icon */
+.icon-big {
+    width: 3rem;
+    height: 3rem;
+}
+
 .icon-fill {
     fill: var(--color-secondary);
     transition: 0.5s;

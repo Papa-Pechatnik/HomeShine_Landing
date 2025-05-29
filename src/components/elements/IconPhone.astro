@@ -1,11 +1,20 @@
 ---
+interface Props {
+    color?: string;
+    className?: string;
+}
+
+const {color, className} = Astro.props;
+
+const colorFill: string = color ? `var(--color-${color})` : "var(--color-secondary)";
+
 import { getCollection } from "astro:content";
 const contactEntries = await getCollection("information");
 const contactInfo = contactEntries[0].data;
 ---
 
 <a href=`tel:${contactInfo.phone}`>
-  <svg class="icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg class:list={["icon", className]} width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_63_2080)">
       <path
         class="icon-fill"
@@ -20,3 +29,10 @@ const contactInfo = contactEntries[0].data;
     </defs>
   </svg>
 </a>
+
+<style define:vars={{ colorFill }}>
+.icon-fill {
+  fill: var(--colorFill);
+}
+
+</style>
