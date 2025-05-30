@@ -1,31 +1,96 @@
 ---
 import { Image } from "astro:assets";
 import UnderlineH2 from "./elements/UnderlineH2.astro";
-import img from "../assets/img/test.jpg";
+import img from "../assets/img/woman-1.png";
+
+const asked = [
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "The duration of a typical project varies greatly with its complexity and scope. We don't offer a fixed timeline as each is unique. Smaller projects might span a few weeks, while more extensive endeavors can take several months. To give you a precise estimate, we need to discuss your specific needs and features.",
+  },
+  {
+    question: "Do you offer free estimates?",
+    answer: "Yes, we offer free, no-obligation estimates for all potential projects. Contact us to discuss your needs!",
+  },
+  {
+    question: "Do you offer free estimates?",
+    answer:
+      "We primarily use high-quality, durable latex (acrylic) paints from trusted brands for most residential projects due to their excellent coverage, quick drying times, and easy cleanup. For specific needs, like high-traffic areas or a smoother finish, we also work with oil-based paints or specialized options. We're happy to discuss the best type and finish for your specific project.",
+  },
+  {
+    question: "Can you match my existing color?",
+    answer:
+      "Yes, absolutely! We offer professional color matching services to perfectly match your existing paint. Just provide us with a sample of the color, and we'll ensure a seamless blend with your current decor.",
+  },
+  {
+    question: "Are you licensed and insured?",
+    answer:
+      "Yes, absolutely! We are fully licensed and insured for your protection and peace of mind. We're happy to provide proof of our credentials upon request.",
+  },
+];
 ---
 
 <section class="asked">
   <div class="container">
-    <section class="w-488">
-      <header class="asked-header">
-        <h2 class="text-h2 text-capitalize">Frequently Asked Questions</h2>
-        <UnderlineH2 />
-        <p class="asked-header__description text-basic text-basic--20">
-          Thanks to our clients for their trust! We strive to provide the best services.
-        </p>
-      </header>
-      <div class="asked-foto">
-        <div class="corner-box">
-          <div class="corner-box__bottom" aria-hidden="true"></div>
-          <Image class="img-cover" src={img} width={590} height={601} alt="house" />
+    <div class="asked-wrap">
+      <section class="w-488">
+        <header class="asked-header">
+          <h2 class="text-h2 text-capitalize text-h2">Frequently Asked Questions</h2>
+          <UnderlineH2 />
+          <p class="asked-header__description text-basic text-basic--20">
+            Thanks to our clients for their trust! We strive to provide the best services.
+          </p>
+        </header>
+        <div class="asked-foto">
+          <div class="corner-box">
+            <div class="corner-box__bottom" aria-hidden="true"></div>
+            <Image class="img-cover" src={img} width={590} height={601} alt="house" />
+          </div>
         </div>
-      </div>
-    </section>
-    <section>
-      <h1>Asked</h1>
-    </section>
+      </section>
+      <section class="asked-accordion w-692">
+        <div class="asked-list w-588">
+          {
+            asked.map((item) => (
+              <section class="asked-list__item">
+                <button class="item-button">&#9658;</button>
+                <article class="item-content">
+                  <h3 class="item-content__question text-h3">{item.question}</h3>
+                  <p class="item-content__answer text-basic text-basic--16">{item.answer}</p>
+                </article>
+              </section>
+            ))
+          }
+        </div>
+      </section>
+    </div>
   </div>
 </section>
+
+<script>
+  const accordions: NodeListOf<HTMLElement> = document.querySelectorAll(".asked-list__item");
+
+  accordions.forEach((item: HTMLElement) => {
+    item.addEventListener("click", (event: MouseEvent) => {
+      const targetElement = event.target as Element;
+      const clickedButton: Element | null = targetElement.closest(".item-button");
+      const clickedContent: Element | null = targetElement.closest(".item-content");
+
+      const isClickInsideCurrentAccordionItem =
+        (clickedButton && item.contains(clickedButton)) || (clickedContent && item.contains(clickedContent));
+
+      if (isClickInsideCurrentAccordionItem) {
+        accordions.forEach((otherItem: HTMLElement) => {
+          if (otherItem !== item && otherItem.classList.contains("answer-activ")) {
+            otherItem.classList.remove("answer-activ");
+          }
+        });
+        item.classList.toggle("answer-activ");
+      }
+    });
+  });
+</script>
 
 <style>
   .asked {
@@ -33,14 +98,98 @@ import img from "../assets/img/test.jpg";
     padding-bottom: var(--indent_200-90);
   }
 
+  .asked-header {
+    color: var(--color-primary);
+  }
+
+  .asked-header__description {
+    margin-top: 1rem;
+    color: var(--color-text-secondary);
+  }
+
   .asked-foto {
     width: 100%;
     height: 33.625rem;
+    margin-top: 2.75rem;
   }
 
-    /** corner */
-    .asked-foto .corner-box {
+  /** corner */
+  .asked-foto .corner-box {
     --corner-bottom-width: 75%;
     --corner-bottom-height: clamp(10rem, 0.6713rem + 38.2716vw, 29.375rem); /** 478 160 при 1200 vs 390*/
+  }
+  .asked-wrap {
+    display: flex;
+    justify-content: space-between;
+    column-gap: var(--gap);
+  }
+
+  .asked-accordion {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+
+  .asked-list {
+    display: flex;
+    flex-direction: column;
+    align-content: end;
+    row-gap: 1rem;
+    margin-left: 1rem;
+  }
+
+  .asked-list__item {
+    display: flex;
+    align-items: center;
+    column-gap: var(--gap);
+  }
+
+  .item-button {
+    border: none;
+    background: transparent;
+    color: var(--color-secondary);
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    transition: all 0.5s ease;
+  }
+
+  .item-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    background-color: var(--color-tertiary);
+  }
+
+  .item-content__question {
+    color: var(--color-secondary);
+  }
+
+  .item-content__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    color: var(--color-text-secondary);
+  }
+
+  .answer-activ .item-content__answer {
+    margin-top: 1rem;
+    max-height: max-content;
+  }
+
+  .answer-activ .item-button {
+    transform: rotate(90deg);
+  }
+
+  @media screen and (max-width: 992.98px) {
+    .asked-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 84px;
+    }
+    .asked-list {
+      margin-left: 0;
+    }
   }
 </style>

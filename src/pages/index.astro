@@ -1,29 +1,29 @@
 ---
-import About from '../components/About.astro';
-import Asked from '../components/Asked.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
-import Gallery from '../components/Gallery.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Practice from '../components/Practice.astro';
-import Reviews from '../components/Reviews.astro';
-import Services from '../components/Services.astro';
-import Layout from '../layouts/Layout.astro';
+import About from "../components/About.astro";
+import Asked from "../components/Asked.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import Gallery from "../components/Gallery.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Practice from "../components/Practice.astro";
+import Reviews from "../components/Reviews.astro";
+import Services from "../components/Services.astro";
+import Layout from "../layouts/Layout.astro";
 
 const author = "Web developer by Sopun Yuriy";
 const page = "Home";
 ---
 
-<Layout title={page} author={author}/>
-	 <Header/>
-	<Hero/>
-	<Contact/>
-	<!--<About/>
-	<Services/>
-	<Practice/>
-	<Gallery/>
-	<Reviews/>
-	<Asked/> -->
-	<Footer/>
+<Layout title={page} author={author}>
+  <Header />
+  <Hero />
+  <Contact />
+  <About />
+  <Services />
+  <Practice />
+  <Gallery />
+  <Reviews />
+  <Asked />
+  <Footer />
 </Layout>

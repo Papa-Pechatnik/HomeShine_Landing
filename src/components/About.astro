@@ -1,8 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import imgPoster from "../assets/img/house-video-poster.png";
+import videoPoster from "../assets/img/house-video-poster.png";
+import video from "../assets/video/video-clip1-360.mp4";
 import UnderlineH2 from "./elements/UnderlineH2.astro";
 import ButtonSmall from "./elements/ButtonSmall.astro";
+
 ---
 
 <section class="about">
@@ -11,7 +13,8 @@ import ButtonSmall from "./elements/ButtonSmall.astro";
       <section class="about-video w-692">
         <div class="corner-box">
           <div class="corner-box__top" aria-hidden="true"></div>
-          <Image class="img-cover" src={imgPoster} width={692} height={452} alt="house" />
+          <video class="img-cover" poster={videoPoster.src} src={video} width={692} height={452} controls muted/>
+          <!-- Работа с кнопкой запуска и с опасити -->
         </div>
       </section>
       <section class="about-content w-488">
@@ -54,7 +57,21 @@ import ButtonSmall from "./elements/ButtonSmall.astro";
   }
 
   .about-video {
-    height: 28.25rem;
+    max-height: 28.25rem;
+    position: relative;
+    aspect-ratio: 692 / 452;
+  }
+
+  .about-video::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-primary);
+    opacity: 0.45;
+    z-index: 2;
   }
 
   .about-video .corner-box {
