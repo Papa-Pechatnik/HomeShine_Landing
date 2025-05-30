@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import img from "../assets/img/house-2.png";
+import Button from "./elements/Button.astro";
 import ButtonSmall from "./elements/ButtonSmall.astro";
 import UnderlineH2 from "./elements/UnderlineH2.astro";
 ---
@@ -39,11 +40,15 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
 </section>
 <section class="practice-asked">
   <div class="container">
-    <div>
-      <h2></h2>
-      <p></p>
+    <div class="practice-asked__wrap">
+      <div class="content">
+        <h2 class="content__title text-h2">Want to Work with Us?</h2>
+        <p class="content__description text-basic text-basic--16">
+          Our team of painting design is ready to work on your project!
+        </p>
+      </div>
+      <Button text="START NEW PROJECT" className="btn-big" className1="btn-center"/>
     </div>
-    <button></button>
   </div>
 </section>
 
@@ -91,6 +96,29 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     width: calc(50vw - var(--gap));
     height: 100%;
   }
+  .practice-asked {
+    background-color: var(--color-secondary);
+    padding-top: var(--indent_44);
+    padding-bottom: var(--indent_44);
+  }
+
+  .practice-asked__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .practice-asked__wrap .content {
+    margin-bottom: var(--indent_60);
+  }
+
+  .practice-asked__wrap .content__title {
+    color: var(--color-main);
+  }
+
+  .practice-asked__wrap .content__description {
+    margin-top: var(--indent_24);
+    color: var(--color-tertiary);
+  }
 
   @media screen and (max-width: 61.9988rem) {
     .practice-wrap {
@@ -116,6 +144,10 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
       position: absolute;
       left: calc(-1 * var(--pad-container));
       width: calc(100vw - var(--pad-container));
+    }
+
+    .practice-asked__wrap {
+flex-direction: column;
     }
   }
 </style>
