@@ -21,9 +21,9 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
             decks, complemented by expert color selection.
           </p>
           <ul class="practice-content-list text-basic text-basic--16">
-            <li>Comprehensive Range of Services</li>
-            <li>Experience in Various Painting Types</li>
-            <li>Professional Color Consultation</li>
+            <li><span>Comprehensive Range of Services</span></li>
+            <li><span>Experience in Various Painting Types</span></li>
+            <li><span>Professional Color Consultation</span></li>
           </ul>
           <p class="practice-content__text text-basic text-basic--16">
             Our experts thoroughly develop projects and supervise the construction process from the very beginning to
@@ -47,7 +47,7 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
           Our team of painting design is ready to work on your project!
         </p>
       </div>
-      <Button text="START NEW PROJECT" className="btn-big" className1="btn-center"/>
+      <Button text="START NEW PROJECT" className="btn-big" className1="btn-center" />
     </div>
   </div>
 </section>
@@ -85,6 +85,26 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     color: var(--color-tertiary);
   }
 
+  .practice-content-list {
+    --list-outside: 2rem;
+    margin-left: var(--list-outside);
+  }
+
+  .practice-content-list li {
+    position: relative;
+  }
+
+  .practice-content-list li:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  .practice-content-list li::after {
+    position: absolute;
+    content: url("../icons/icons_check.svg");
+    top: 0;
+    left: calc(-1 * var(--list-outside));
+  }
+
   .practice-img {
     position: relative;
   }
@@ -105,10 +125,6 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
   .practice-asked__wrap {
     display: flex;
     justify-content: space-between;
-  }
-
-  .practice-asked__wrap .content {
-    margin-bottom: var(--indent_60);
   }
 
   .practice-asked__wrap .content__title {
@@ -147,7 +163,11 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
     }
 
     .practice-asked__wrap {
-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .practice-asked__wrap .content {
+      margin-bottom: var(--indent_60);
     }
   }
 </style>
