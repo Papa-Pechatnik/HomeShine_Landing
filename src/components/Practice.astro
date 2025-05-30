@@ -40,8 +40,8 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
 </section>
 <section class="practice-asked">
   <div class="container">
-    <div class="practice-asked__wrap">
-      <div class="content">
+      <div class="practice-asked__wrap  ">
+        <div class="content w-588">
         <h2 class="content__title text-h2">Want to Work with Us?</h2>
         <p class="content__description text-basic text-basic--16">
           Our team of painting design is ready to work on your project!
@@ -164,10 +164,12 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
 
     .practice-asked__wrap {
       flex-direction: column;
+      align-items: center;
     }
 
     .practice-asked__wrap .content {
       margin-bottom: var(--indent_60);
+      text-align: start;
     }
   }
 </style>
