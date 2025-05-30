@@ -1,28 +1,121 @@
 ---
-
+import { Image } from "astro:assets";
+import img from "../assets/img/house-2.png";
+import ButtonSmall from "./elements/ButtonSmall.astro";
+import UnderlineH2 from "./elements/UnderlineH2.astro";
 ---
+
 <section class="practice">
-    <div class="container">
-        <div class="practice-wrap">
-            <section class="practice-content">
-
-            </section>
-            <section class="practice-img">
-
-            </section>
+  <div class="container">
+    <div class="practice-wrap">
+      <section class="practice-content w-588">
+        <div class="practice-content__wrap">
+          <header>
+            <h2 class="practice-content__title text-h2">Practice Areas</h2>
+            <UnderlineH2 />
+          </header>
+          <p class="practice-content__description text-basic text-basic--16">
+            The HomeShine Painting team provids a tailored approach to every project. We understand that each space is
+            unique and deserves special attention, offering quality painting for interiors, exteriors, kitchens, and
+            decks, complemented by expert color selection.
+          </p>
+          <ul class="practice-content-list text-basic text-basic--16">
+            <li>Comprehensive Range of Services</li>
+            <li>Experience in Various Painting Types</li>
+            <li>Professional Color Consultation</li>
+          </ul>
+          <p class="practice-content__text text-basic text-basic--16">
+            Our experts thoroughly develop projects and supervise the construction process from the very beginning to
+            the end of the works.
+          </p>
         </div>
+        <ButtonSmall textButton="VIEW PORTFOLIO" />
+      </section>
+      <section class="practice-img">
+        <Image class="practice-img__img img-cover" src={img} width={710} height={697} alt="house" />
+      </section>
     </div>
+  </div>
 </section>
 <section class="practice-asked">
-    <div class="container">
-        <div>
-            <h2></h2>
-            <p></p>
-        </div>
-<button></button>
+  <div class="container">
+    <div>
+      <h2></h2>
+      <p></p>
     </div>
+    <button></button>
+  </div>
 </section>
 
 <style>
+  .practice {
+    background-color: var(--color-primary);
+    overflow: hidden;
+  }
+  .practice-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--gap);
+  }
 
+  .practice-content {
+    padding-top: var(--indent_100-40);
+    padding-bottom: var(--indent_100-40);
+  }
+
+  .practice-content__wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--indent_24-36);
+    margin-bottom: var(--indent_50-100);
+  }
+
+  .practice-content__title,
+  .practice-content-list {
+    color: var(--color-main);
+  }
+
+  .practice-content__description,
+  .practice-content__text {
+    color: var(--color-tertiary);
+  }
+
+  .practice-img {
+    position: relative;
+  }
+
+  .practice-img__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(50vw - var(--gap));
+    height: 100%;
+  }
+
+  @media screen and (max-width: 61.9988rem) {
+    .practice-wrap {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    .practice-content {
+      justify-self: center;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .practice-img {
+      width: 100%;
+      max-height: 590px;
+      aspect-ratio: 0.835;
+    }
+    .practice-img__img {
+      position: absolute;
+      left: calc(-1 * var(--pad-container));
+      width: calc(100vw - var(--pad-container));
+    }
+  }
 </style>

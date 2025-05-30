@@ -38,9 +38,14 @@
     --indent_60-40: clamp(2.5rem, 1.7778rem + 2.963vw, 4rem);
     --indent_44-24:clamp(1.5rem, 0.8981rem + 2.4691vw, 2.75rem);
     --indent_40-16: clamp(1rem, 0.2778rem + 2.963vw, 2.5rem);
+
+    --indent_24-36: clamp(2.25rem, 2.6111rem + -1.4815vw, 1.5rem);
+    --indent_50-100: clamp(6.25rem, 7.7546rem + -6.1728vw, 3.125rem);
         
     --gap: 20px;
     --step-img: clamp(.625rem, 0.3241rem + 1.2346vw, 1.25rem);
+
+    --media-992: 61.9988rem;
 }
 
 .container {
@@ -197,7 +202,7 @@
     fill: red;
   } */
 
-@media screen and (max-width: 992.98px) {
+@media screen and (max-width: 61.9988rem) {
     .w-488,
     .w-692 {
         max-width: 590px;
