@@ -12,16 +12,98 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
         We are dedicated to creating spaces which meet clients' needs, requirements, and expectations.
       </p>
     </header>
-    <main class="services-slider">
-      Слайдер
-      <!-- <ServicesCard/>
-      <ServicesCard/>
-      <ServicesCard/>
-      <ServicesCard/> -->
-    </main>
   </div>
+  <section class="services-slider">
+    <div class="container">
+      <div class="splide" id="slider" aria-label="carusel">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <ServicesCard />
+            </li>
+            <li class="splide__slide">
+              <ServicesCard />
+            </li>
+            <li class="splide__slide">
+              <ServicesCard />
+            </li>
+            <li class="splide__slide">
+              <ServicesCard />
+            </li>
+            <li class="splide__slide">
+              <ServicesCard />
+            </li>
+            <li class="splide__slide">
+              <ServicesCard />
+            </li>
+          </ul>
+        </div>
+        <div class="splide__arrows splide__arrows--ltr">
+          <button
+            class="splide__arrow splide__arrow--prev"
+            type="button"
+            aria-label="Previous slide"
+            aria-controls="splide01-track"
+          >
+            <svg width="18" height="33" viewBox="0 0 18 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.49542 32.5C1.22402 32.5 0.946299 32.3927 0.738018 32.1844C0.321455 31.7678 0.321455 31.0862 0.738018 30.6696L14.996 16.4053L0.946301 2.35559C0.529737 1.93903 0.529737 1.25735 0.946301 0.840782C1.36286 0.424221 2.04449 0.424221 2.46105 0.840782L17.2681 15.6479C17.6847 16.0644 17.6847 16.7461 17.2681 17.1627L2.25277 32.1844C2.04449 32.3927 1.76683 32.4999 1.49539 32.4999L1.49542 32.5Z"
+                fill="#0A93EF"></path>
+            </svg>
+          </button>
+          <button
+            class="splide__arrow splide__arrow--next"
+            type="button"
+            aria-label="Next slide"
+            aria-controls="splide01-track"
+          >
+            <svg width="18" height="33" viewBox="0 0 18 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.49542 32.5C1.22402 32.5 0.946299 32.3927 0.738018 32.1844C0.321455 31.7678 0.321455 31.0862 0.738018 30.6696L14.996 16.4053L0.946301 2.35559C0.529737 1.93903 0.529737 1.25735 0.946301 0.840782C1.36286 0.424221 2.04449 0.424221 2.46105 0.840782L17.2681 15.6479C17.6847 16.0644 17.6847 16.7461 17.2681 17.1627L2.25277 32.1844C2.04449 32.3927 1.76683 32.4999 1.49539 32.4999L1.49542 32.5Z"
+                fill="#0A93EF"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/dist/css/splide.min.css";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    new Splide("#slider", {
+      type: "loop", // Неперервний цикл слайдів
+      autoWidth: true,
+      gap: 20,
+      drag: true,
+      // perPage: 4,        // Показувати по одному слайду
+      arrows: true, // Показати стрілки
+      pagination: false, // Показати точки пагінації
+    }).mount();
+  });
+</script>
 <style>
+  .services-slider {
+    padding: 36px;
+  }
+
+  .splide__arrows {
+    --size-arrows: 24px;
+    --margin--arrows: 36px;
+    position: absolute;
+    z-index: 2;
+    width: calc(100% + 2 * (var(--size-arrows) + var(--margin--arrows)));
+    left: calc(-1 * (var(--size-arrows) + var(--margin--arrows)));
+    top: 40%;
+  }
+
+  .splide__arrow {
+    background: transparent;
+  }
+
   .services {
     padding-top: var(--indent_100-40);
     padding-bottom: var(--indent_100-40);
@@ -45,10 +127,12 @@ import UnderlineH2 from "./elements/UnderlineH2.astro";
   }
 
   .services-slider {
-    display: flex;
-    justify-content: space-around;
-    column-gap: var(--gap);
-
     margin-top: clamp(2.25rem, 2.6204rem + -0.4938vw, 2.5rem);
+  }
+
+  .splide__list {
+    /* display: flex;
+    justify-content: space-between;
+    column-gap: var(--gap); */
   }
 </style>
