@@ -20,14 +20,20 @@ import imgHouse from "../assets/img/house-1.png";
             Transform Your Home With a Professional Touch Beautiful interiors. Durable exteriors. Flawless decks &
             kitchens.
           </p>
-          <ButtonSmall textButton="CONTACT US" className2="btn-center"/>
+          <ButtonSmall textButton="CONTACT US" className2="btn-center" />
         </div>
       </section>
       <section class="hero-foto">
         <div class="corner-box">
           <div class="corner-box__top" aria-hidden="true"></div>
           <div class="corner-box__bottom" aria-hidden="true"></div>
-          <Image class="img-cover" src={imgHouse} width={590} height={601} alt="house" />
+          <Image class="img-cover"
+            src={imgHouse}
+            alt="house"
+            widths={[320, 412, 590]}
+            height={601}
+            sizes="(max-width: 768px) 100vw, 590px"
+          />
         </div>
       </section>
     </div>
@@ -126,7 +132,6 @@ import imgHouse from "../assets/img/house-1.png";
       --corner-top-width: 50vw;
       --corner-bottom-width: 50vw;
     }
-
   }
 
   @media screen and (max-width: 575.98px) {
