@@ -14,7 +14,7 @@ import ButtonSmall from "./elements/ButtonSmall.astro";
       <section class="about-video w-692">
         <div class="corner-box">
           <div class="corner-box__top" aria-hidden="true"></div>
-          <video class="img-cover" poster={videoPoster.src} src={video} width={692} height={452} controls muted/>
+          <video class="img-cover" preload="lazy" poster={videoPoster.src} src={video} width={692} height={452} controls muted/>
           <!-- Работа с кнопкой запуска и с опасити -->
         </div>
       </section>
