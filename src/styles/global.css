@@ -1,6 +1,5 @@
 @import url("./normalize.css");
-@import url("./fonts.css");
-/* @import '@splidejs/splide/dist/css/splide.min.css'; */
+
 :root {
     --color-main: #ffffff; /* --white: #fff; */
 
